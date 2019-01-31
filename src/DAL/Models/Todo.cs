@@ -20,6 +20,9 @@ namespace DAL.Models
        
         public bool Completed { get; set; } // is completed
         public bool Marked { get; set; } // as important
-         
+
+        public DateTime DateCreated { get; set; }
+        public DateTime DateModified { get; set; }
+
     }
 }

@@ -69,11 +69,12 @@ namespace DAL
             builder.Entity<OrderDetail>().ToTable($"App{nameof(this.OrderDetails)}");
             builder.Entity<OrderDetail>().Property(p => p.UnitPrice).HasColumnType(priceDecimalType);
             builder.Entity<OrderDetail>().Property(p => p.Discount).HasColumnType(priceDecimalType);
+
+            builder.Entity<Todo>().ToTable($"App{nameof(this.Todos)}");
+            builder.Entity<Todo>().Property(p => p.Task).IsRequired().HasMaxLength(100);
+            builder.Entity<Todo>().HasIndex(p => p.Task);
+
         }
-
-
-
-
         public override int SaveChanges()
         {
             UpdateAuditEntities();
