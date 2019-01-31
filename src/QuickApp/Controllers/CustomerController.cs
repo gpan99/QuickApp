@@ -40,7 +40,9 @@ namespace QuickApp.Controllers
         public IActionResult Get()
         {
             var allCustomers = _unitOfWork.Customers.GetAllCustomersData();
-            return Ok(Mapper.Map<IEnumerable<CustomerViewModel>>(allCustomers));
+
+            var customers = Mapper.Map<IEnumerable<CustomerViewModel>>(allCustomers);
+                    return Ok(customers);
         }
 
 
