@@ -3,23 +3,23 @@
 // Email: support@ebenmonney.com
 // ====================================================
 
-using DAL.Repositories.Interfaces;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+
+namespace QuickApp.ViewModels
 {
-    public interface IUnitOfWork
+    public class TodoViewModel
     {
-        ICustomerRepository Customers { get; }
-        ITodoRepository Todos { get; }
+        public int Id { get; set; }
+        public string Task { get; set; }
+        public string Description { get; set; }
 
-        IProductRepository Products { get; }
-        IOrdersRepository Orders { get; }
-
-        int SaveChanges();
+        public bool Completed { get; set; } // is completed
+        public bool Marked { get; set; } // as important
     }
 }

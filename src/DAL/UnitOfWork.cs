@@ -18,17 +18,15 @@ namespace DAL
         readonly ApplicationDbContext _context;
 
         ICustomerRepository _customers;
+        ITodoRepository _todos;
+
         IProductRepository _products;
         IOrdersRepository _orders;
-
-
 
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
         }
-
-
 
         public ICustomerRepository Customers
         {
@@ -41,7 +39,16 @@ namespace DAL
             }
         }
 
+        public ITodoRepository Todos
+        {
+            get
+            {
+                if (_todos == null)
+                    _todos = new TodoRepository(_context);
 
+                return _todos;
+            }
+        }
 
         public IProductRepository Products
         {
@@ -54,8 +61,6 @@ namespace DAL
             }
         }
 
-
-
         public IOrdersRepository Orders
         {
             get
@@ -66,9 +71,6 @@ namespace DAL
                 return _orders;
             }
         }
-
-
-
 
         public int SaveChanges()
         {

@@ -62,6 +62,7 @@ import { UserPreferencesComponent } from './components/controls/user-preferences
 import { UsersManagementComponent } from './components/controls/users-management.component';
 import { RolesManagementComponent } from './components/controls/roles-management.component';
 import { RoleEditorComponent } from './components/controls/role-editor.component';
+import { TodoComponent } from './components/todo/todo.component';
 
 
 
@@ -95,6 +96,7 @@ import { RoleEditorComponent } from './components/controls/role-editor.component
     CustomersComponent,
     ProductsComponent,
     OrdersComponent,
+    TodoComponent,
     SettingsComponent,
     UsersManagementComponent, UserInfoComponent, UserPreferencesComponent,
     RolesManagementComponent, RoleEditorComponent,
@@ -110,7 +112,8 @@ import { RoleEditorComponent } from './components/controls/role-editor.component
     BootstrapToggleDirective,
     BootstrapSelectDirective,
     BootstrapDatepickerDirective,
-    GroupByPipe
+    GroupByPipe,
+    TodoComponent
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl },

@@ -17,9 +17,9 @@ namespace DAL.Models
         public int Id { get; set; }
         public string Task { get; set; }
         public string Description { get; set; }
-       
-        public bool Completed { get; set; } // is completed
-        public bool Marked { get; set; } // as important
+
+        public bool Completed { get; set; } = false;
+        public bool Marked { get; set; } = false;
 
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
