@@ -17,11 +17,7 @@ export class TodoService {
     }
     loadTodos() { 
       return this.endpointFactory.getTodoEndpoint<TodoResponse[]>()
-        .pipe(map(
-          res => console.log(res.values)
-      //    this.processTodoResponse(res)
-          )
-          );
+        .pipe(map(res=> this.processTodoResponse(res)));
     }
     private processTodoResponse(response: TodoResponse[]) {
     {
