@@ -18,6 +18,7 @@ export class EndpointFactory {
   private readonly _loginUrl: string = '/connect/token';
 
   private get loginUrl() { return this.configurations.baseUrl + this._loginUrl; }
+  private get TodoUrl() { return this.configurations.baseUrl + '/api/Todo'; }
 
   private taskPauser: Subject<any>;
   private isRefreshingLogin: boolean;
@@ -35,6 +36,25 @@ export class EndpointFactory {
 
   constructor(protected http: HttpClient, protected configurations: ConfigurationService, private injector: Injector) {
 
+  }
+
+
+  getTodoEndpoint<T>(): Observable<T> {
+
+    const header = new HttpHeaders({ 'accept': 'application/json' });
+
+    //const params = new HttpParams()  
+    //  .append('grant_type', 'password')
+    //  .append('scope', 'openid email phone profile offline_access roles');
+
+    //const requestBody = params.toString();
+    console.log(this.TodoUrl);
+   
+    return this.http.get<T>(this.loginUrl,{ headers: header }).pipe<T>(
+      catchError(error => {
+        return this.handleError(error, () => this.getRefreshLoginEndpoint());
+      }));
+   // return this.http.get<T>(this.TodoUrl);//, { headers: header }
   }
 
 

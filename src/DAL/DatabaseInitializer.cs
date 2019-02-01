@@ -189,9 +189,18 @@ namespace DAL
                 _context.Orders.Add(ordr_1);
                 _context.Orders.Add(ordr_2);
 
-                _context.Todos.Add(new Todo { Task = "To retire", Description = "good life?",
+                _context.Todos.Add(new Todo { Task = "To retire in 2019", Description = "with regret",
                     DateCreated =DateTime.Now, UpdatedDate=DateTime.Now,
                 DateModified=DateTime.Now});
+
+                _context.Todos.Add(new Todo
+                {
+                    Task = "To retire 2020",
+                    Description = "with happy life",
+                    DateCreated = DateTime.Now,
+                    UpdatedDate = DateTime.Now,
+                    DateModified = DateTime.Now
+                });
 
                 await _context.SaveChangesAsync();
 
