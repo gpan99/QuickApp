@@ -23,7 +23,7 @@ export class TodoService {
     }
     private processTodoResponse(response: TodoResponse[]) {
     {
-        let s = response;
+        return (response);
     }
   }
 }

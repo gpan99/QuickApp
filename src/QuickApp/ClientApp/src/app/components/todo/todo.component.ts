@@ -3,7 +3,8 @@ import { fadeInOut } from '../../services/animations';
 
 import { AlertService, MessageSeverity, DialogType } from '../../services/alert.service';
 import { AuthService } from '../../services/auth.service';
-import {TodoService} from '../../services/todo.service'
+import { TodoService } from '../../services/todo.service';
+import { TodoResponse } from '../../models/Todoresponse.model'
 import { ConfigurationService } from '../../services/configuration.service';
 
 @Component({
@@ -24,10 +25,10 @@ export class TodoComponent implements OnInit {
   _currentUserId: string;
   _hideCompletedTasks = false;
   isLoading = false;
+  todos: TodoResponse[] = [];
     
   constructor(private alertService: AlertService, private authService: AuthService, private configurations: ConfigurationService,
     private todoService: TodoService) {
-
   }
   get currentUserId() {
     if (this.authService.currentUser)
@@ -53,7 +54,7 @@ export class TodoComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
-   // this.alertService.startLoadingMessage('', 'Loadting todos...');
+    this.alertService.startLoadingMessage('hi', 'Loading todos...');
     this.todoService.loadTodos();
-  }
+  };
 }
