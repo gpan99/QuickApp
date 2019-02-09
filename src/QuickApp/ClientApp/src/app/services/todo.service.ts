@@ -16,8 +16,10 @@ export class TodoService {
       private localStorage: LocalStoreManager) {
     }
     loadTodos() { 
-      return this.endpointFactory.getTodoEndpoint<TodoResponse[]>()
-        .pipe(map(res=> this.processTodoResponse(res)));
+      return this.endpointFactory.getTodoEndpoint<TodoResponse[]>().
+        subscribe((data: TodoResponse[]) => {
+          this.processTodoResponse(data);
+        });
     }
     private processTodoResponse(response: TodoResponse[]) {
     {
