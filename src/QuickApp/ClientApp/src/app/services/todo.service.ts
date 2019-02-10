@@ -19,7 +19,7 @@ export class TodoService {
     return this.endpointFactory.getTodoEndpoint<TodoResp[]>().
       subscribe((data: TodoResp[]) => {
           todo = data;
-          this.processTodoResponse(data);
+          this.processTodoResponse(todo);
         });
     }
     private processTodoResponse(response: TodoResp[]) {
