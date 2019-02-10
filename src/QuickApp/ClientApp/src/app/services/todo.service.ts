@@ -15,11 +15,10 @@ export class TodoService {
     constructor(private router: Router, private configurations: ConfigurationService, private endpointFactory: EndpointFactory,
       private localStorage: LocalStoreManager) {
     }
-  loadTodos(todo: TodoResp[]) { 
+  loadTodos(tod) { 
     return this.endpointFactory.getTodoEndpoint<TodoResp[]>().
       subscribe((data: TodoResp[]) => {
-          todo = data;
-          this.processTodoResponse(todo);
+        tod(data);
         });
     }
     private processTodoResponse(response: TodoResp[]) {

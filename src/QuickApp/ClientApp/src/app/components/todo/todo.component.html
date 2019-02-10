@@ -3,15 +3,15 @@
       <h3><i class="fa fa-bicycle fa-lg page-caption" aria-hidden="true"></i> To Do</h3>
   </header>
 
-  <div [@fadeInOut]>
+  <div >
       <span class="text-muted">-- To Do List --</span>
       <div class="row">
         <div class="product-info col-md-4 well well-sm" *ngFor="let p of todos">               
           <div><strong>Id</strong>: {{ p.Id }}</div>
           <div><strong>Task</strong>: {{ p.Task }}</div>
           <div><strong>Description</strong>: {{ p.Description }}</div>
-          <!--<button id="buyButton2" class="btn btn-success btn-sm pull-right" (click)="addProduct(p)">Buy</button>
-          <button *ngIf="IsCheckedOut(p)" class="btn btn-info btn-sm pull-left" (click)="DecrementProduct(p)">Reduce</button>-->
+          <button id="buyButton2" class="btn btn-success btn-sm pull-right" (click)="TodoClicked(p)">Console log</button>
+<!--          <button *ngIf="IsCheckedOut(p)" class="btn btn-info btn-sm pull-left" (click)="DecrementProduct(p)">Reduce</button>-->
         </div>
       </div>
   </div>
