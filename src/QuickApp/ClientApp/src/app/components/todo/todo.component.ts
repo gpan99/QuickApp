@@ -35,7 +35,8 @@ export class TodoComponent implements OnInit {
   }
   ngOnInit() {
     this.isLoading = true;
-   
+    var t = new TodoResp( 1,  'fakeTask', 'fakedesc1', false, false );
+   this.todos.push(t);
    // this.alertService.startLoadingMessage('hi', 'Loading todos...');
     this.todoService.loadTodos(this.todos);
   };
