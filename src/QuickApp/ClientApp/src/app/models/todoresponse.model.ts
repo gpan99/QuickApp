@@ -10,6 +10,14 @@ export interface TodoResponse {
     Completed: boolean;
     Marked: boolean;
 }
+//export class TodoResp implements TodoResponse {
+//  Id: number;
+//  Task: string;
+//  Description: string;
+//  Completed: boolean;
+//  Marked: boolean;
+//}
+
 export class TodoResp implements TodoResponse{
   Id: number;
   Task: string;

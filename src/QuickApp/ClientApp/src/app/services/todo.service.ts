@@ -7,23 +7,16 @@ import { ConfigurationService } from './configuration.service';
 import { LocalStoreManager } from './local-store-manager.service';
 import { TodoResponse, TodoResp} from '../models/Todoresponse.model'
 import { Utilities } from './utilities';
+import { environment } from '../../environments/environment';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
-    constructor(private router: Router, private configurations: ConfigurationService, private endpointFactory: EndpointFactory,
-      private localStorage: LocalStoreManager) {
+      constructor(private http: HttpClient) {
     }
-  loadTodos(tod) { 
-    return this.endpointFactory.getTodoEndpoint<TodoResp[]>().
-      subscribe((data: TodoResp[]) => {
-        tod(data);
-        });
+    loadTodos() {
+    return this.http.get<TodoResp[]>(`http://localhost:62690/api/todo`);   
     }
-    private processTodoResponse(response: TodoResp[]) {
-      {
-        console.log (response);
-    }
-  }
 }

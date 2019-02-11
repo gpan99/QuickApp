@@ -52,8 +52,8 @@ namespace DAL
                 await EnsureRoleAsync(adminRoleName, "Default administrator", ApplicationPermissions.GetAllPermissionValues());
                 await EnsureRoleAsync(userRoleName, "Default user", new string[] { });
 
-                await CreateUserAsync("admin", "tempP@ss123", "Inbuilt Administrator", "admin@ebenmonney.com", "+1 (123) 000-0000", new string[] { adminRoleName });
-                await CreateUserAsync("user", "tempP@ss123", "Inbuilt Standard User", "user@ebenmonney.com", "+1 (123) 000-0001", new string[] { userRoleName });
+                await CreateUserAsync("admin", "password", "Inbuilt Administrator", "admin@ebenmonney.com", "+1 (123) 000-0000", new string[] { adminRoleName });
+                await CreateUserAsync("user", "password", "Inbuilt Standard User", "user@ebenmonney.com", "+1 (123) 000-0001", new string[] { userRoleName });
 
                 _logger.LogInformation("Inbuilt account generation completed");
             }
@@ -189,14 +189,14 @@ namespace DAL
                 _context.Orders.Add(ordr_1);
                 _context.Orders.Add(ordr_2);
 
-                _context.Todos.Add(new Todo { Task = "To retire in 2019", Description = "with regret",
+                _context.Todos.Add(new Todo { Task = "To retire", Description = "with regret",
                     DateCreated =DateTime.Now, UpdatedDate=DateTime.Now,
                 DateModified=DateTime.Now});
 
                 _context.Todos.Add(new Todo
                 {
-                    Task = "To retire 2020",
-                    Description = "with happy life",
+                    Task = "To retire",
+                    Description = "with happy",
                     DateCreated = DateTime.Now,
                     UpdatedDate = DateTime.Now,
                     DateModified = DateTime.Now

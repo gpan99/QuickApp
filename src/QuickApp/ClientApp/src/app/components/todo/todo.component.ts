@@ -26,20 +26,19 @@ export class TodoComponent implements OnInit {
   _currentUserId: string;
   _hideCompletedTasks = false;
   isLoading = false;
-  todos: TodoResp[] = [];
+  todos: TodoResp[] =[];
     
-  constructor(private alertService: AlertService, private authService: AuthService, private configurations: ConfigurationService,
-    private todoService: TodoService) {
-    
+  constructor(private alertService: AlertService, private authService: AuthService,
+    private configurations: ConfigurationService, private todoService: TodoService) {
   }
-  ngOnInit() {  
-   // this.alertService.startLoadingMessage('hi', 'Loading todos...');
-    this.todoService.loadTodos(this.servieCallback);
+  ngOnInit() {
+    this.todoService.loadTodos()
+      .subscribe((response: TodoResp[]) => {
+        this.todos = response;
+      },
+        (err: any) => console.log(err),
+      () => console.log(this.todos));
   };
-
-  servieCallback(ts: TodoResp[]) {
-    console.log(ts);
-  }
 
   TodoClicked(todo: TodoResp): void {
     console.log(todo);
