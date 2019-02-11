@@ -11,7 +11,7 @@ export const environment = {
   production: false,
   baseUrl: null, // Change this to the address of your backend API if different from frontend address
   loginUrl: '/login',
-   apiUrl: 'http://localhost:51777/api',
+  apiUrl: 'http://localhost:62690/api',
 };
 
 /*

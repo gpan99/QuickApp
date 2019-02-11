@@ -17,6 +17,6 @@ export class TodoService {
       constructor(private http: HttpClient) {
     }
     loadTodos() {
-    return this.http.get<TodoResp[]>(`http://localhost:62690/api/todo`);   
+      return this.http.get<TodoResp[]>(environment.apiUrl + `/todo`);   
     }
 }
